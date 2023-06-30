@@ -190,8 +190,8 @@ void search5(CSVReader &reader, vector<string> &cols_name, const string &output_
                 for (const auto &v4: v3.second) {
                     long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
-                        sum1 += v4.second, sum2 += v4.second, sum3 += v4.second, sum4 += v4.second;
-                        lines1++, lines2++, lines3++, line4++;
+                        sum1 += v5.second, sum2 += v5.second, sum3 += v5.second, sum4 += v5.second;
+                        lines1++, lines2++, lines3++, lines4++;
                         array<string, 14> line{v1.first, v2.first, v3.first, v4.first, v5.first, to_string(v5.second),
                                                (v5 == *v4.second.rbegin() ? to_string(lines4) : ""),
                                                (v5 == *v4.second.rbegin() ? to_string(sum4) : ""),
