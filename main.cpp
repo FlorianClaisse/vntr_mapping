@@ -104,8 +104,8 @@ void search3(CSVReader &reader, vector<string> &cols_name, const string &output_
                 array<string, 8> line{v1.first, v2.first, v3.first, to_string(v3.second),
                                       (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
                                       (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
-                                      (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
-                                      (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
+                                      (v2 == *v1.second.rbegin() && v3 == *v2.second.rbegin() ? to_string(lines1) : ""),
+                                      (v2 == *v1.second.rbegin() && v3 == *v2.second.rbegin() ? to_string(sum1) : "")};
                 writer << line;
             }
         }
@@ -146,10 +146,10 @@ void search4(CSVReader &reader, vector<string> &cols_name, const string &output_
                     array<string, 11> line{v1.first, v2.first, v3.first, v4.first, to_string(v4.second),
                                           (v4 == *v3.second.rbegin() ? to_string(lines3) : ""),
                                           (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
-                                          (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
-                                          (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
-                                          (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
-                                          (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
+                                          (v3 == *v2.second.rbegin() && v4 == *v3.second.rbegin() ? to_string(lines2) : ""),
+                                          (v3 == *v2.second.rbegin() && v4 == *v3.second.rbegin() ? to_string(sum2) : ""),
+                                          (v2 == *v1.second.rbegin() && v4 == *v3.second.rbegin() ? to_string(lines1) : ""),
+                                          (v2 == *v1.second.rbegin() && v4 == *v3.second.rbegin() ? to_string(sum1) : "")};
                     writer << line;
                 }
             }
@@ -193,12 +193,12 @@ void search5(CSVReader &reader, vector<string> &cols_name, const string &output_
                         array<string, 14> line{v1.first, v2.first, v3.first, v4.first, v5.first, to_string(v5.second),
                                                (v5 == *v4.second.rbegin() ? to_string(lines4) : ""),
                                                (v5 == *v4.second.rbegin() ? to_string(sum4) : ""),
-                                               (v4 == *v3.second.rbegin() ? to_string(lines3) : ""),
-                                               (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
-                                               (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
-                                               (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
-                                               (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
-                                               (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
+                                               (v4 == *v3.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(lines3) : ""),
+                                               (v4 == *v3.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(sum3) : ""),
+                                               (v3 == *v2.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(lines2) : ""),
+                                               (v3 == *v2.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(sum2) : ""),
+                                               (v2 == *v1.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(lines1) : ""),
+                                               (v2 == *v1.second.rbegin() && v5 == *v4.second.rbegin() ? to_string(sum1) : "")};
                         writer << line;
                     }
                 }
