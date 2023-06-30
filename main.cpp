@@ -199,7 +199,7 @@ void search5(CSVReader &reader, vector<string> &cols_name, const string &output_
     }
 }
 
-int search6(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
+void search6(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
     map<string, map<string, map<string, map<string, map<string, map<string, int>>>>>> value;
     for (const auto &row: reader) {
         string v1 = row[cols_name[0]].get();
@@ -249,7 +249,7 @@ int search6(CSVReader &reader, vector<string> &cols_name, const string &output_p
     }
 }
 
-int search7(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
+void search7(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
     map<string, map<string, map<string, map<string, map<string, map<string, map<string, int>>>>>>> value;
     for (const auto &row: reader) {
         string v1 = row[cols_name[0]].get();
@@ -304,7 +304,7 @@ int search7(CSVReader &reader, vector<string> &cols_name, const string &output_p
     }
 }
 
-int search8(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
+void search8(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
     map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, int>>>>>>>> value;
     for (const auto &row: reader) {
         string v1 = row[cols_name[0]].get();
@@ -364,7 +364,7 @@ int search8(CSVReader &reader, vector<string> &cols_name, const string &output_p
     }
 }
 
-int search9(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
+void search9(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
     map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, int>>>>>>>>> value;
     for (const auto &row: reader) {
         string v1 = row[cols_name[0]].get();
@@ -429,7 +429,7 @@ int search9(CSVReader &reader, vector<string> &cols_name, const string &output_p
     }
 }
 
-int search10(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
+void search10(CSVReader &reader, vector<string> &cols_name, const string &output_path) {
     map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, map<string, int>>>>>>>>>> value;
     for (const auto &row: reader) {
         string v1 = row[cols_name[0]].get();
