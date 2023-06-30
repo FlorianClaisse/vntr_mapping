@@ -13,12 +13,11 @@ using MyWriter = DelimWriter<ofstream, ';', '"', true>;
 
 int usage() {
     cout << "Usage : \n"
-         << "./vntr_mapping <filepath> [columns name] <column count name>\n\n"
+         << "./vntr_mapping <filepath> [columns name]\n\n"
          << "\t<filepath>\t\tPath to input file (csv format)\n"
          << "\t[columns name]\t\tThe name of the columns to process.\n"
          << "\t\t\t\tKnowing that the sort order will be based on the order of the columns passed as an argument,\n"
          << "\t\t\t\tand that the last column name will be the column that will be counted. (Maximum 10)\n"
-         << "\t<column count name>\tThe name of the column where the count is stored.\n"
          << "\t-h --help\t\tTo view help\n";
 
     return -1;
@@ -41,10 +40,7 @@ void search1(CSVReader &reader, const vector<string> &cols_name, const string &o
     writer << cols_name;
 
     for (const auto &v1: value) {
-        vector<string> line;
-        line.push_back(v1.first);
-        line.push_back(to_string(v1.second));
-
+        array<string, 2> line{v1.first, to_string(v1.second)};
         writer << line;
     }
 }
@@ -69,11 +65,7 @@ void search2(CSVReader &reader, vector<string> &cols_name, const string &output_
 
     for (const auto &v1: value) {
         for (const auto &v2: v1.second) {
-            vector<string> line;
-            line.push_back(v1.first);
-            line.push_back(v2.first);
-            line.push_back(to_string(v2.second));
-
+            array<string, 3> line{v1.first, v2.first, to_string(v2.second)};
             writer << line;
         }
     }
@@ -102,12 +94,7 @@ void search3(CSVReader &reader, vector<string> &cols_name, const string &output_
     for (const auto &v1: value) {
         for (const auto &v2: v1.second) {
             for (const auto &v3: v2.second) {
-                vector<string> line;
-                line.push_back(v1.first);
-                line.push_back(v2.first);
-                line.push_back(v3.first);
-                line.push_back(to_string(v3.second));
-
+                array<string, 4> line{v1.first, v2.first, v3.first, to_string(v3.second)};
                 writer << line;
             }
         }
@@ -140,13 +127,7 @@ void search4(CSVReader &reader, vector<string> &cols_name, const string &output_
         for (const auto &v2: v1.second) {
             for (const auto &v3: v2.second) {
                 for (const auto &v4: v3.second) {
-                    vector<string> line;
-                    line.push_back(v1.first);
-                    line.push_back(v2.first);
-                    line.push_back(v3.first);
-                    line.push_back(v4.first);
-                    line.push_back(to_string(v4.second));
-
+                    array<string, 5> line{v1.first, v2.first, v3.first, v4.first, to_string(v4.second)};
                     writer << line;
                 }
             }
@@ -183,14 +164,7 @@ void search5(CSVReader &reader, vector<string> &cols_name, const string &output_
             for (const auto &v3: v2.second) {
                 for (const auto &v4: v3.second) {
                     for (const auto &v5: v4.second) {
-                        vector<string> line;
-                        line.push_back(v1.first);
-                        line.push_back(v2.first);
-                        line.push_back(v3.first);
-                        line.push_back(v4.first);
-                        line.push_back(v5.first);
-                        line.push_back(to_string(v5.second));
-
+                        array<string, 6> line{v1.first, v2.first, v3.first, v4.first, v5.first, to_string(v5.second)};
                         writer << line;
                     }
                 }
@@ -231,15 +205,7 @@ void search6(CSVReader &reader, vector<string> &cols_name, const string &output_
                 for (const auto &v4: v3.second) {
                     for (const auto &v5: v4.second) {
                         for (const auto &v6: v5.second) {
-                            vector<string> line;
-                            line.push_back(v1.first);
-                            line.push_back(v2.first);
-                            line.push_back(v3.first);
-                            line.push_back(v4.first);
-                            line.push_back(v5.first);
-                            line.push_back(v6.first);
-                            line.push_back(to_string(v6.second));
-
+                            array<string, 7> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, to_string(v6.second)};
                             writer << line;
                         }
                     }
@@ -284,16 +250,7 @@ void search7(CSVReader &reader, vector<string> &cols_name, const string &output_
                     for (const auto &v5: v4.second) {
                         for (const auto &v6: v5.second) {
                             for (const auto &v7: v6.second) {
-                                vector<string> line;
-                                line.push_back(v1.first);
-                                line.push_back(v2.first);
-                                line.push_back(v3.first);
-                                line.push_back(v4.first);
-                                line.push_back(v5.first);
-                                line.push_back(v6.first);
-                                line.push_back(v7.first);
-                                line.push_back(to_string(v7.second));
-
+                                array<string, 8> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, to_string(v7.second)};
                                 writer << line;
                             }
                         }
@@ -342,17 +299,7 @@ void search8(CSVReader &reader, vector<string> &cols_name, const string &output_
                         for (const auto &v6: v5.second) {
                             for (const auto &v7: v6.second) {
                                 for (const auto &v8: v7.second) {
-                                    vector<string> line;
-                                    line.push_back(v1.first);
-                                    line.push_back(v2.first);
-                                    line.push_back(v3.first);
-                                    line.push_back(v4.first);
-                                    line.push_back(v5.first);
-                                    line.push_back(v6.first);
-                                    line.push_back(v7.first);
-                                    line.push_back(v8.first);
-                                    line.push_back(to_string(v8.second));
-
+                                    array<string, 9> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, to_string(v8.second)};
                                     writer << line;
                                 }
                             }
@@ -405,18 +352,7 @@ void search9(CSVReader &reader, vector<string> &cols_name, const string &output_
                             for (const auto &v7: v6.second) {
                                 for (const auto &v8: v7.second) {
                                     for (const auto &v9: v8.second) {
-                                        vector<string> line;
-                                        line.push_back(v1.first);
-                                        line.push_back(v2.first);
-                                        line.push_back(v3.first);
-                                        line.push_back(v4.first);
-                                        line.push_back(v5.first);
-                                        line.push_back(v6.first);
-                                        line.push_back(v7.first);
-                                        line.push_back(v8.first);
-                                        line.push_back(v9.first);
-                                        line.push_back(to_string(v9.second));
-
+                                        array<string, 10> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, to_string(v9.second)};
                                         writer << line;
                                     }
                                 }
@@ -473,19 +409,7 @@ void search10(CSVReader &reader, vector<string> &cols_name, const string &output
                                 for (const auto &v8: v7.second) {
                                     for (const auto &v9: v8.second) {
                                         for (const auto &v10: v9.second) {
-                                            vector<string> line;
-                                            line.push_back(v1.first);
-                                            line.push_back(v2.first);
-                                            line.push_back(v3.first);
-                                            line.push_back(v4.first);
-                                            line.push_back(v5.first);
-                                            line.push_back(v6.first);
-                                            line.push_back(v7.first);
-                                            line.push_back(v8.first);
-                                            line.push_back(v9.first);
-                                            line.push_back(v10.first);
-                                            line.push_back(to_string(v10.second));
-
+                                            array<string, 11> line{, v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, v10.first, to_string(v10.second)};
                                             writer << line;
                                         }
                                     }
@@ -499,9 +423,23 @@ void search10(CSVReader &reader, vector<string> &cols_name, const string &output
     }
 }
 
-// ./vntr_mapping <filepath> col1 col2 col3 ... nameLastCol
+void set_cols_name(vector<string> &cols_name) {
+    vector<string> added_value;
+    for (int i = 0; i < cols_name.size(); i++) {
+        if (i == 0) added_value.push_back(string(cols_name[i]) + "_sum");
+        else {
+            added_value.push_back(string(cols_name[i]) + "_sum");
+            added_value.push_back(string(cols_name[i]) + "_count");
+        }
+    }
+
+    for (const auto &value: added_value)
+        cols_name.push_back(value);
+}
+
+// ./vntr_mapping <filepath> col1 col2 col3 ...
 int main(int argc, const char **argv) {
-    if (argc < 4)
+    if (argc < 3)
         return usage();
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)
@@ -511,42 +449,40 @@ int main(int argc, const char **argv) {
         return usage();
 
     vector<string> cols_name;
-    for (int i = 2; i < argc - 1; i++)
+    for (int i = 2; i < argc; i++)
         cols_name.emplace_back(argv[i]);
-
-    cols_name.emplace_back(argv[argc - 1]);
 
     CSVReader reader{argv[1]};
 
     switch (cols_name.size()) {
-        case 2:
+        case 1:
             search1(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 3:
+        case 2:
             search2(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 4:
+        case 3:
             search3(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 5:
+        case 4:
             search4(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 6:
+        case 5:
             search5(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 7:
+        case 6:
             search6(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 8:
+        case 7:
             search7(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 9:
+        case 8:
             search8(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 10:
+        case 9:
             search9(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
-        case 11:
+        case 10:
             search10(reader, cols_name, (fs::path(argv[1]).parent_path() / "output.csv"));
             break;
         default:
