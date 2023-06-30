@@ -350,7 +350,7 @@ int search8(CSVReader &reader, vector<string> &cols_name, const string &output_p
                                     line.push_back(v5.first);
                                     line.push_back(v6.first);
                                     line.push_back(v7.first);
-                                    line.push_back(v8.first)
+                                    line.push_back(v8.first);
                                     line.push_back(to_string(v8.second));
 
                                     writer << line;
@@ -413,8 +413,8 @@ int search9(CSVReader &reader, vector<string> &cols_name, const string &output_p
                                         line.push_back(v5.first);
                                         line.push_back(v6.first);
                                         line.push_back(v7.first);
-                                        line.push_back(v8.first)
-                                        line.push_back(v9.first)
+                                        line.push_back(v8.first);
+                                        line.push_back(v9.first);
                                         line.push_back(to_string(v9.second));
 
                                         writer << line;
@@ -481,9 +481,9 @@ int search10(CSVReader &reader, vector<string> &cols_name, const string &output_
                                             line.push_back(v5.first);
                                             line.push_back(v6.first);
                                             line.push_back(v7.first);
-                                            line.push_back(v8.first)
-                                            line.push_back(v9.first)
-                                            line.push_back(v10.first)
+                                            line.push_back(v8.first);
+                                            line.push_back(v9.first);
+                                            line.push_back(v10.first);
                                             line.push_back(to_string(v10.second));
 
                                             writer << line;
