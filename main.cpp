@@ -459,7 +459,7 @@ void search10(CSVReader &reader, vector<string> &cols_name, const string &output
 
 void set_cols_name(vector<string> &cols_name) {
     vector<string> added_value;
-    for (size_t i = cols_name.size() - 1; i >= 0; i--) {
+    for (int i = cols_name.size() - 1; i >= 0; i--) {
         if (i == cols_name.size() - 1) added_value.push_back(string(cols_name[i]) + "_sum");
         else {
             added_value.push_back(string(cols_name[i]) + "_count");
