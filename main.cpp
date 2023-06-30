@@ -68,8 +68,8 @@ void search2(CSVReader &reader, vector<string> &cols_name, const string &output_
         for (const auto &v2: v1.second) {
             sum1 += v2.second, lines1++;
             array<string, 5> line{v1.first, v2.first, to_string(v2.second),
-                                  (v2 == *v1.second.rbegin() ? to_string(sum1) : ""),
-                                  (v2 == *v1.second.rbegin() ? to_string(lines1) : "")};
+                                  (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
+                                  (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
             writer << line;
         }
     }
@@ -102,10 +102,10 @@ void search3(CSVReader &reader, vector<string> &cols_name, const string &output_
             for (const auto &v3: v2.second) {
                 sum1 += v3.second, sum2 += v3.second, lines1++, lines2++;
                 array<string, 8> line{v1.first, v2.first, v3.first, to_string(v3.second),
-                                      (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
                                       (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
-                                      (v2 == *v1.second.rbegin() ? to_string(sum1) : ""),
-                                      (v2 == *v1.second.rbegin() ? to_string(lines1) : "")};
+                                      (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
+                                      (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
+                                      (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
                 writer << line;
             }
         }
@@ -144,12 +144,12 @@ void search4(CSVReader &reader, vector<string> &cols_name, const string &output_
                     sum1 += v4.second, sum2 += v4.second, sum3 += v4.second;
                     lines1++, lines2++, lines3++;
                     array<string, 11> line{v1.first, v2.first, v3.first, v4.first, to_string(v4.second),
-                                          (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
                                           (v4 == *v3.second.rbegin() ? to_string(lines3) : ""),
-                                          (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
+                                          (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
                                           (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
-                                          (v2 == *v1.second.rbegin() ? to_string(sum1) : ""),
-                                          (v2 == *v1.second.rbegin() ? to_string(lines1) : "")};
+                                          (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
+                                          (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
+                                          (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
                     writer << line;
                 }
             }
@@ -191,14 +191,14 @@ void search5(CSVReader &reader, vector<string> &cols_name, const string &output_
                     long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
                         array<string, 14> line{v1.first, v2.first, v3.first, v4.first, v5.first, to_string(v5.second),
-                                               (v5 == *v4.second.rbegin() ? to_string(sum4) : ""),
                                                (v5 == *v4.second.rbegin() ? to_string(lines4) : ""),
-                                               (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
+                                               (v5 == *v4.second.rbegin() ? to_string(sum4) : ""),
                                                (v4 == *v3.second.rbegin() ? to_string(lines3) : ""),
-                                               (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
+                                               (v4 == *v3.second.rbegin() ? to_string(sum3) : ""),
                                                (v3 == *v2.second.rbegin() ? to_string(lines2) : ""),
-                                               (v2 == *v1.second.rbegin() ? to_string(sum1) : ""),
-                                               (v2 == *v1.second.rbegin() ? to_string(lines1) : "")};
+                                               (v3 == *v2.second.rbegin() ? to_string(sum2) : ""),
+                                               (v2 == *v1.second.rbegin() ? to_string(lines1) : ""),
+                                               (v2 == *v1.second.rbegin() ? to_string(sum1) : "")};
                         writer << line;
                     }
                 }
@@ -459,11 +459,11 @@ void search10(CSVReader &reader, vector<string> &cols_name, const string &output
 
 void set_cols_name(vector<string> &cols_name) {
     vector<string> added_value;
-    for (int i = 0; i < cols_name.size(); i++) {
-        if (i == 0) added_value.push_back(string(cols_name[i]) + "_sum");
+    for (size_t i = cols_name.size() - 1; i >= 0; i--) {
+        if (i == cols_name.size() - 1) added_value.push_back(string(cols_name[i]) + "_sum");
         else {
-            added_value.push_back(string(cols_name[i]) + "_sum");
             added_value.push_back(string(cols_name[i]) + "_count");
+            added_value.push_back(string(cols_name[i]) + "_sum");
         }
     }
 
