@@ -236,12 +236,29 @@ void search6(CSVReader &reader, vector<string> &cols_name, const string &output_
     writer << cols_name;
 
     for (const auto &v1: value) {
+        long sum1{0}, lines1{0};
         for (const auto &v2: v1.second) {
+            long sum2{0}, lines2{0};
             for (const auto &v3: v2.second) {
+                long sum3{0}, lines3{0};
                 for (const auto &v4: v3.second) {
+                    long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
+                        long sum5{0}, lines5{0};
                         for (const auto &v6: v5.second) {
-                            array<string, 7> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, to_string(v6.second)};
+                            sum1 += v6.second, sum2 += v6.second, sum3 += v6.second, sum4 += v6.second, sum5 += v6.second;
+                            lines1++, lines2++, lines3++, lines4++, lines5++;
+                            array<string, 17> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, to_string(v6.second),
+                                                  (v6 == *v5.second.rbegin() ? to_string(lines5) : ""),
+                                                  (v6 == *v5.second.rbegin() ? to_string(sum5) : ""),
+                                                  (v5 == *v4.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(lines4) : ""),
+                                                  (v5 == *v4.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(sum4) : ""),
+                                                  (v4 == *v3.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(lines3) : ""),
+                                                  (v4 == *v3.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(sum3) : ""),
+                                                  (v3 == *v2.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(lines2) : ""),
+                                                  (v3 == *v2.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(sum2) : ""),
+                                                  (v2 == *v1.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(lines1) : ""),
+                                                  (v2 == *v1.second.rbegin() && v6 == *v5.second.rbegin() ? to_string(sum1) : "")};
                             writer << line;
                         }
                     }
@@ -280,13 +297,33 @@ void search7(CSVReader &reader, vector<string> &cols_name, const string &output_
     writer << cols_name;
 
     for (const auto &v1: value) {
+        long sum1{0}, lines1{0};
         for (const auto &v2: v1.second) {
+            long sum2{0}, lines2{0};
             for (const auto &v3: v2.second) {
+                long sum3{0}, lines3{0};
                 for (const auto &v4: v3.second) {
+                    long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
+                        long sum5{0}, lines5{0};
                         for (const auto &v6: v5.second) {
+                            long sum6{0}, lines6{0};
                             for (const auto &v7: v6.second) {
-                                array<string, 8> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, to_string(v7.second)};
+                                sum1 += v7.second, sum2 += v7.second, sum3 += v7.second, sum4 += v7.second, sum5 += v7.second, sum6 += v7.second;
+                                lines1++, lines2++, lines3++, lines4++, lines5++, lines6++;
+                                array<string, 20> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, to_string(v7.second),
+                                                      (v7 == *v6.second.rbegin() ? to_string(lines6) : ""),
+                                                      (v7 == *v6.second.rbegin() ? to_string(sum6) : ""),
+                                                      (v6 == *v5.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(lines5) : ""),
+                                                      (v6 == *v5.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(sum5) : ""),
+                                                      (v5 == *v4.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(lines4) : ""),
+                                                      (v5 == *v4.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(sum4) : ""),
+                                                      (v4 == *v3.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(lines3) : ""),
+                                                      (v4 == *v3.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(sum3) : ""),
+                                                      (v3 == *v2.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(lines2) : ""),
+                                                      (v3 == *v2.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(sum2) : ""),
+                                                      (v2 == *v1.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(lines1) : ""),
+                                                      (v2 == *v1.second.rbegin() && v7 == *v6.second.rbegin() ? to_string(sum1) : "")};
                                 writer << line;
                             }
                         }
@@ -328,14 +365,37 @@ void search8(CSVReader &reader, vector<string> &cols_name, const string &output_
     writer << cols_name;
 
     for (const auto &v1: value) {
+        long sum1{0}, lines1{0};
         for (const auto &v2: v1.second) {
+            long sum2{0}, lines2{0};
             for (const auto &v3: v2.second) {
+                long sum3{0}, lines3{0};
                 for (const auto &v4: v3.second) {
+                    long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
+                        long sum5{0}, lines5{0};
                         for (const auto &v6: v5.second) {
+                            long sum6{0}, lines6{0};
                             for (const auto &v7: v6.second) {
+                                long sum7{0}, lines7{0};
                                 for (const auto &v8: v7.second) {
-                                    array<string, 9> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, to_string(v8.second)};
+                                    sum1 += v8.second, sum2 += v8.second, sum3 += v8.second, sum4 += v8.second, sum5 += v8.second, sum6 += v8.second, sum7 += v8.second;
+                                    lines1++, lines2++, lines3++, lines4++, lines5++, lines6++, lines7++;
+                                    array<string, 23> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, to_string(v8.second),
+                                                          (v8 == *v7.second.rbegin() ? to_string(lines7) : ""),
+                                                          (v8 == *v7.second.rbegin() ? to_string(sum7) : ""),
+                                                          (v7 == *v6.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines6) : ""),
+                                                          (v7 == *v6.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum6) : ""),
+                                                          (v6 == *v5.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines5) : ""),
+                                                          (v6 == *v5.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum5) : ""),
+                                                          (v5 == *v4.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines4) : ""),
+                                                          (v5 == *v4.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum4) : ""),
+                                                          (v4 == *v3.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines3) : ""),
+                                                          (v4 == *v3.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum3) : ""),
+                                                          (v3 == *v2.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines2) : ""),
+                                                          (v3 == *v2.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum2) : ""),
+                                                          (v2 == *v1.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(lines1) : ""),
+                                                          (v2 == *v1.second.rbegin() && v8 == *v7.second.rbegin() ? to_string(sum1) : "")};
                                     writer << line;
                                 }
                             }
@@ -380,15 +440,41 @@ void search9(CSVReader &reader, vector<string> &cols_name, const string &output_
     writer << cols_name;
 
     for (const auto &v1: value) {
+        long sum1{0}, lines1{0};
         for (const auto &v2: v1.second) {
+            long sum2{0}, lines2{0};
             for (const auto &v3: v2.second) {
+                long sum3{0}, lines3{0};
                 for (const auto &v4: v3.second) {
+                    long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
+                        long sum5{0}, lines5{0};
                         for (const auto &v6: v5.second) {
+                            long sum6{0}, lines6{0};
                             for (const auto &v7: v6.second) {
+                                long sum7{0}, lines7{0};
                                 for (const auto &v8: v7.second) {
+                                    long sum8{0}, lines8{0};
                                     for (const auto &v9: v8.second) {
-                                        array<string, 10> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, to_string(v9.second)};
+                                        sum1 += v9.second, sum2 += v9.second, sum3 += v9.second, sum4 += v9.second, sum5 += v9.second, sum6 += v9.second, sum7 += v9.second, sum8 += v9.second;
+                                        lines1++, lines2++, lines3++, lines4++, lines5++, lines6++, lines7++, lines8++;
+                                        array<string, 26> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, to_string(v9.second),
+                                                               (v9 == *v8.second.rbegin() ? to_string(lines8) : ""),
+                                                               (v9 == *v8.second.rbegin() ? to_string(sum8) : ""),
+                                                               (v8 == *v7.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines7) : ""),
+                                                               (v8 == *v7.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum7) : ""),
+                                                               (v7 == *v6.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines6) : ""),
+                                                               (v7 == *v6.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum6) : ""),
+                                                               (v6 == *v5.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines5) : ""),
+                                                               (v6 == *v5.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum5) : ""),
+                                                               (v5 == *v4.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines4) : ""),
+                                                               (v5 == *v4.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum4) : ""),
+                                                               (v4 == *v3.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines3) : ""),
+                                                               (v4 == *v3.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum3) : ""),
+                                                               (v3 == *v2.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines2) : ""),
+                                                               (v3 == *v2.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum2) : ""),
+                                                               (v2 == *v1.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(lines1) : ""),
+                                                               (v2 == *v1.second.rbegin() && v9 == *v8.second.rbegin() ? to_string(sum1) : "")};
                                         writer << line;
                                     }
                                 }
@@ -436,16 +522,45 @@ void search10(CSVReader &reader, vector<string> &cols_name, const string &output
     writer << cols_name;
 
     for (const auto &v1: value) {
+        long sum1{0}, lines1{0};
         for (const auto &v2: v1.second) {
+            long sum2{0}, lines2{0};
             for (const auto &v3: v2.second) {
+                long sum3{0}, lines3{0};
                 for (const auto &v4: v3.second) {
+                    long sum4{0}, lines4{0};
                     for (const auto &v5: v4.second) {
+                        long sum5{0}, lines5{0};
                         for (const auto &v6: v5.second) {
+                            long sum6{0}, lines6{0};
                             for (const auto &v7: v6.second) {
+                                long sum7{0}, lines7{0};
                                 for (const auto &v8: v7.second) {
+                                    long sum8{0}, lines8{0};
                                     for (const auto &v9: v8.second) {
+                                        long sum9{0}, lines9{0};
                                         for (const auto &v10: v9.second) {
-                                            array<string, 11> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, v10.first, to_string(v10.second)};
+                                            sum1 += v10.second, sum2 += v10.second, sum3 += v10.second, sum4 += v10.second, sum5 += v10.second, sum6 += v10.second, sum7 += v10.second, sum8 += v10.second, sum9 += v10.second;
+                                            lines1++, lines2++, lines3++, lines4++, lines5++, lines6++, lines7++, lines8++, lines9++;
+                                            array<string, 29> line{v1.first, v2.first, v3.first, v4.first, v5.first, v6.first, v7.first, v8.first, v9.first, v10.first, to_string(v10.second),
+                                                                   (v10 == *v9.second.rbegin() ? to_string(lines9) : ""),
+                                                                   (v10 == *v9.second.rbegin() ? to_string(sum9) : ""),
+                                                                   (v9 == *v8.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines8) : ""),
+                                                                   (v9 == *v8.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum8) : ""),
+                                                                   (v8 == *v7.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines7) : ""),
+                                                                   (v8 == *v7.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum7) : ""),
+                                                                   (v7 == *v6.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines6) : ""),
+                                                                   (v7 == *v6.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum6) : ""),
+                                                                   (v6 == *v5.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines5) : ""),
+                                                                   (v6 == *v5.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum5) : ""),
+                                                                   (v5 == *v4.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines4) : ""),
+                                                                   (v5 == *v4.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum4) : ""),
+                                                                   (v4 == *v3.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines3) : ""),
+                                                                   (v4 == *v3.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum3) : ""),
+                                                                   (v3 == *v2.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines2) : ""),
+                                                                   (v3 == *v2.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum2) : ""),
+                                                                   (v2 == *v1.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(lines1) : ""),
+                                                                   (v2 == *v1.second.rbegin() && v10 == *v9.second.rbegin() ? to_string(sum1) : "")};
                                             writer << line;
                                         }
                                     }
